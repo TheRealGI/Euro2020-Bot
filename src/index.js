@@ -1,6 +1,6 @@
 const startUp = require("./startUp");
 
-startUp.express();
+startUp.startExpress();
 
 startUp.ready();
 
