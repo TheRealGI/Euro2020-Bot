@@ -1,4 +1,4 @@
-const matchService = require('../../httpService/match-service');
+const matchService = require('../../service/match-service');
 module.exports = {
     name: 'match',
     needsArgs: true,
@@ -25,5 +25,5 @@ module.exports = {
 }
 
 function buildMessage(msg, match) {
-     return msg += match.homeTeam.name + "\t"+ match.score.fullTime.homeTeam + ":" + match.score.fullTime.awayTeam+ "\t" + match.awayTeam.name ;
+     return msg += match.HomeName + "\t"+ match.HomeScore + ":" + match.AwayScore+ "\t" + match.AwayName ;
 }
