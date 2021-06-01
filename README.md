@@ -12,7 +12,7 @@ The bot consumes the data from the [football-data API](https://www.football-data
 
 ## Commands
 
-| Command     | Arguments     | Output      |
-|-------------|:-------------:| -----------:|
-|Comming      | soon          | !           |
+| Command     | Arguments       | Output                              |
+|-------------|:---------------:| ------------------------------------|
+|~match       | matchId         | delivers result for a specific match|           |
 
