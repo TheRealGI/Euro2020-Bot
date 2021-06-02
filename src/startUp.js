@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 const fs = require('fs');
 const commandHandler = require('./commandHandler/commandHandler');
 require('dotenv').config();
+const matchRepository = require('./db/repository/match-repository');
 const app = express();
 const port = 3000;
 const client = new Discord.Client();
@@ -16,7 +17,19 @@ for(const file of commandFiles) {
 }
 
 const startExpress = function () {
-  app.get('/', (req, res) => res.send('Hello World!'));
+  app.get('/updateMatches/:id', async (req, res) => {
+      if(req.params.id != null && req.params.id == process.env.API_TOKEN)
+      {
+        let response = await matchRepository.refreshMatches();
+
+        if(response != null) {
+        return res.status(200).send("successfully refreshed all matches");
+        }
+       return res.status(500).send('Something went wrong');
+      }
+      return res.status(403).send('Missing auth header!')
+  });
+
   app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 }
 
