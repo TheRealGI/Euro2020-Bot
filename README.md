@@ -8,11 +8,12 @@ The bot is hosted on [Replit](https://replit.com/), a online IDE, editor, compil
 To let the bot "stay awake" I'm using a third party service called [UptimeRobot](https://uptimerobot.com/), which pings the bot in a 5 min interval.
 I recommend this kind of setup for everyone which want to create and host a discord bot for free.
 
-The bot consumes the data from the [football-data API](https://www.football-data.org/). 
+The bot consumes the data from the [football-data API](https://www.football-data.org/).
+
+The data will be stored in  [SQLite](https://www.sqlite.org/index.html) file. I'm also using the [Knex](https://knexjs.org/) module for sql queries. 
 
 ## Commands
 
 | Command     | Arguments       | Output                              |
 |-------------|:---------------:| ------------------------------------|
-|~match       | matchId         | delivers result for a specific match|           |
-
+|~match       | matchId         | delivers result for a specific match|
