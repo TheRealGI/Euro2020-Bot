@@ -1,3 +1,4 @@
+const MatchDto = require('../db/dto/MatchDto');
 const matchRepository = require('../db/repository/match-repository');
 
 const getMatchById =  async function(id) {
@@ -12,4 +13,12 @@ const refreshAllMatches = async function () {
       return await matchRepository.refreshMatches();
 }
 
-module.exports = {getMatchById, getAllMatches, refreshAllMatches};
+const getMatchesForToday = async function () {
+      let utcNow = new Date();
+      utcNow.setDate(utcNow.getUTCDate());
+      return  await matchRepository.getMatchByDate(utcNow).then( result => {
+            return result.map(x => new MatchDto(x));
+      });
+}
+
+module.exports = {getMatchById, getAllMatches, refreshAllMatches, getMatchesForToday};

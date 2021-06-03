@@ -1,6 +1,7 @@
 const db = require('../knex')
 const httpService = require('../../httpService/http-service-base');
 const mapper = require('../mapper/match');
+const moment = require('../../util/date');
 
 function getAllMatches() {
     return db.dbConnection("MatchEntity").select("*");
@@ -8,6 +9,13 @@ function getAllMatches() {
 
 function getMatchById(id) {
     return db.dbConnection("MatchEntity").where("Id", id);
+}
+
+function getMatchByDate(date) {
+    let from = new Date(date)
+    let to = new Date(date);
+    to.setUTCDate(to.getUTCDate() + 1);
+    return db.dbConnection("MatchEntity").whereBetween("Timestamp", [moment.getUtcDate(from), moment.getUtcDate(to)]);
 }
 
 async function updateMatch(matches) {
@@ -19,7 +27,7 @@ async function updateMatch(matches) {
     let deletedRow = await db.dbConnection("MatchEntity").whereIn("Id", ids).del();
     if (deletedRow != null) {
         return await db.dbConnection("MatchEntity").insert(matches);
-
+        
     }
     return null;
 }
@@ -35,4 +43,4 @@ async function refreshMatches() {
     });
 }
 
-module.exports = { getAllMatches, getMatchById, refreshMatches };
+module.exports = { getAllMatches, getMatchById, refreshMatches, getMatchByDate };
