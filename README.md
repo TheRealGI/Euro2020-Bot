@@ -17,3 +17,5 @@ The data will be stored in  [SQLite](https://www.sqlite.org/index.html) file. I'
 | Command     | Arguments       | Output                              |
 |-------------|:---------------:| ------------------------------------|
 |~match       | matchId         | delivers result for a specific match|
+|-------------|:---------------:| ------------------------------------|
+|~today       |                 | delivers matches for today          |
