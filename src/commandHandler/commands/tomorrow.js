@@ -1,19 +1,17 @@
 const moment = require('../../util/date');
 const matchService = require('../../service/match-service');
 module.exports = {
-    name: 'today',
+    name: 'tomorrow',
     needsArgs: false,
      async execute(message, args) {
         var msg = ""; 
-        let dateToday = new Date();
-        moment.getUtcDate(dateToday.setDate(dateToday.getDate()))
-
-        var matchesToday =  await matchService.getMatchesByDate(dateToday);
-
-        if(!matchesToday || matchesToday.length < 1) {
-            return message.channel.send(`No match found for today`)
+        let dateTomorrow = new Date();
+        moment.getUtcDate(dateTomorrow.setDate(dateTomorrow.getDate() + 1))
+        var matchesTomorrow =  await matchService.getMatchesByDate(dateTomorrow);
+        if(!matchesTomorrow || matchesTomorrow.length < 1) {
+            return message.channel.send(`No matches found for tomorrow`);
         }
-         msg = buildMessage(msg, matchesToday);
+         msg = buildMessage(msg, matchesTomorrow);
          return message.channel.send(msg);
     }
 }

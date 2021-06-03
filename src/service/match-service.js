@@ -13,12 +13,11 @@ const refreshAllMatches = async function () {
       return await matchRepository.refreshMatches();
 }
 
-const getMatchesForToday = async function () {
-      let utcNow = new Date();
-      utcNow.setDate(utcNow.getUTCDate());
+const getMatchesByDate = async function (date) {
+      let utcNow = new Date(date);
       return  await matchRepository.getMatchByDate(utcNow).then( result => {
             return result.map(x => new MatchDto(x));
       });
 }
 
-module.exports = {getMatchById, getAllMatches, refreshAllMatches, getMatchesForToday};
+module.exports = {getMatchById, getAllMatches, refreshAllMatches, getMatchesByDate};

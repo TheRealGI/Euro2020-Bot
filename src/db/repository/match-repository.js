@@ -12,7 +12,7 @@ function getMatchById(id) {
 }
 
 function getMatchByDate(date) {
-    let from = new Date(date)
+    let from = moment.getUtcDate(new Date(date));
     let to = new Date(date);
     to.setUTCDate(to.getUTCDate() + 1);
     return db.dbConnection("MatchEntity").whereBetween("Timestamp", [moment.getUtcDate(from), moment.getUtcDate(to)]);
