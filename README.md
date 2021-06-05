@@ -14,8 +14,10 @@ The data will be stored in  [SQLite](https://www.sqlite.org/index.html) file. I'
 
 ## Commands
 
-| Command     | Arguments       | Output                              |
-|-------------|:---------------:| ------------------------------------|
-|~match       | matchId         | delivers result for a specific match|
-|~today       |                 | delivers matches for today          |
-|~tomorrow    |                 | delivers matches for tomorrow       |
+| Command     | Arguments       | Output                                           | 
+|-------------|:---------------:| -------------------------------------------------|
+|~match       | matchId         | delivers result for a specific match             |
+|~today       |                 | delivers matches for today                       |
+|~tomorrow    |                 | delivers matches for tomorrow                    |
+|~allmatches  |                 | delivers Id, HomeTeam and AwayTeam of all matches|
+

@@ -17,6 +17,6 @@ module.exports = {
 }
 
 function buildMessage(msg, matches) {
-      matches.map(x => msg+= "\uFFED " + "\xa0\xa0\xa0\xa0" + x.HomeName + ' vs. ' + x.AwayName+ '   ' + moment.getUTCTimestamp(x.Timestamp) + "\n" )
+      matches.map(x => msg+= "\uFFED " + "\xa0\xa0\xa0\xa0" + x.HomeName + ' vs. ' + x.AwayName+ '   ' + x.Timestamp + "\n" )
       return msg;
 }

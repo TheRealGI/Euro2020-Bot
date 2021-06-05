@@ -4,7 +4,7 @@ const mapper = require('../mapper/match');
 const moment = require('../../util/date');
 
 function getAllMatches() {
-    return db.dbConnection("MatchEntity").select("*");
+    return db.dbConnection("MatchEntity").select("*").orderBy("Timestamp", "asc");
 }
 
 function getMatchById(id) {

@@ -1,3 +1,4 @@
+const MatchDto = require('../dto/MatchDto');
 const matchEntity = require('../entity/MatchEntity');
 
 const MapToMatchArray = function(match) {
@@ -13,4 +14,8 @@ const MapToMatchArray = function(match) {
     return match;
 }
 
-module.exports = { MapToMatchArray };
+const MapToMatchDtoArray = function(matches) {
+    return matches.map( match => new MatchDto(match));
+}
+
+module.exports = { MapToMatchArray, MapToMatchDtoArray };
