@@ -84,7 +84,11 @@ function buildMessage(matches, userDto) {
             return;
         }
     });
+
+    if(msg.length > 3)
+    {
     fields.push({name: "\u200B", value: msg + "```", inline: false});
+    }
 
     return createEmbed(fields, userDto);
 }

@@ -17,7 +17,7 @@ module.exports = {
 
 function buildMessage(bets, userDto) {
     let fields = new Array();
-    var msg = "```ID\t\t\t\tSpiel\n\n";
+    var msg = "```ID\t\t\t\tGame\n\n";
     bets.map( x => {
         msg += x.MatchId+ "\t\t" + x.HomeName + " "+ x.TipHome+ " : "+ x.TipAway+ " " + x.AwayName + "\n";
         if(msg.length > 950)

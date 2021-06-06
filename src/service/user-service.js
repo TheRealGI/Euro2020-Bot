@@ -17,4 +17,16 @@ const getIdByUserId = async function (message) {
     return userRepository.getUserByUserIdAndServerId(simpleDto).then( result => result[0]);
 } 
 
-module.exports = {addUserIfNotExists, getIdByUserId};
+const updateScoreById= async function (id, score) { 
+    return userRepository.updateScoreById(id, score);
+} 
+
+const getTipRankingsByServer = async function(serverId){
+    return userRepository.getUsersByServerId(serverId);
+}
+
+const getUserById = async function (userDto) {
+    return await userRepository.getUserByUserIdAndServerId({UserId: userDto.userId, ServerId: userDto.serverId});
+}
+
+module.exports = {addUserIfNotExists, getIdByUserId, updateScoreById, getTipRankingsByServer, getUserById};
