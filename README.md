@@ -2,7 +2,7 @@
 The Euro2020-Bot is a discord bot which provides various commands for the football european championship 2020 which is held from 11.06.21 to the 11.07.2021. 
 To get a understanding what the bot can do refer to the [Command List](#commands)
 
-## Some Nerd Stuff
+## Tech Stuff
 The bot is written in NodeJS. The bot also uses the [DiscordJs](https://discord.js.org/#/) module for a easier interaction with the [Discord API](https://discord.com/developers/docs/intro).
 The bot is hosted on [Replit](https://replit.com/), a online IDE, editor, compiler for over 50 programming languages with a hosting option. 
 To let the bot "stay awake" I'm using a third party service called [UptimeRobot](https://uptimerobot.com/), which pings the bot in a 5 min interval.
@@ -14,14 +14,15 @@ The data will be stored in  [SQLite](https://www.sqlite.org/index.html) file. I'
 
 ## Commands
 
-| Command     | Arguments                            | Output                                                                     | 
-|-------------|:------------------------------------:| ---------------------------------------------------------------------------|
-|~allmatches  |                                      | delivers Id, HomeTeam and AwayTeam of all matches                          |
-|~match       | matchId                              | delivers result for a specific match                                       |
-|~today       |                                      | delivers matches for today                                                 |
-|~tomorrow    |                                      | delivers matches for tomorrow                                              |
-|~bet         |                                      | delivers all matches which can be bet on                                   |
-|~bet         | matchId, homeTeamScore, awayTeamScore| adds the bet you made on a match. A confirmation message will be displayed |
-|~mybets      |                                      | displays all bets you made                                                 |
+| Command     | Arguments                            | Output                                                                         | 
+|-------------|:------------------------------------:| -------------------------------------------------------------------------------|
+|~allmatches  |                                      | delivers Id, HomeTeam and AwayTeam of all matches                              |
+|~match       | matchId                              | delivers result for a specific match                                           |
+|~today       |                                      | delivers matches for today                                                     |
+|~tomorrow    |                                      | delivers matches for tomorrow                                                  |
+|~bet         |                                      | delivers all matches which can be bet on                                       |
+|~bet         | matchId, homeTeamScore, awayTeamScore| adds the bet you made on a match. A confirmation message will be displayed     |
+|~mybets      |                                      | displays all bets you made                                                     |
+|~betranking  |                                      | displays the top 10 bettor on the server. Your score is displayed at the bottom|
 
 
