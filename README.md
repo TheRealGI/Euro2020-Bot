@@ -14,10 +14,12 @@ The data will be stored in  [SQLite](https://www.sqlite.org/index.html) file. I'
 
 ## Commands
 
-| Command     | Arguments       | Output                                           | 
-|-------------|:---------------:| -------------------------------------------------|
-|~match       | matchId         | delivers result for a specific match             |
-|~today       |                 | delivers matches for today                       |
-|~tomorrow    |                 | delivers matches for tomorrow                    |
-|~allmatches  |                 | delivers Id, HomeTeam and AwayTeam of all matches|
+| Command     | Arguments                            | Output                                                                     | 
+|-------------|:------------------------------------:| ---------------------------------------------------------------------------|
+|~allmatches  |                                      | delivers Id, HomeTeam and AwayTeam of all matches                          |
+|~match       | matchId                              | delivers result for a specific match                                       |
+|~today       |                                      | delivers matches for today                                                 |
+|~tomorrow    |                                      | delivers matches for tomorrow                                              |
+|~bet         |                                      | delivers all matches which can be bet on                                   |
+|~bet         | matchId, homeTeamScore, awayTeamScore| adds the bet you made on a match. A confirmation message will be displayed |
 
