@@ -11,4 +11,10 @@ const addUserIfNotExists = async function(simpleUserDto) {
     return mapper.MapEntityToDto(user[0]); 
 }
 
-module.exports = {addUserIfNotExists};
+const getIdByUserId = async function (message) {
+    let simpleDto = {UserId: message.author.id, ServerId:  message.guild.id, UserName: message.author.username};
+    await addUserIfNotExists(simpleDto);
+    return userRepository.getUserByUserIdAndServerId(simpleDto).then( result => result[0]);
+} 
+
+module.exports = {addUserIfNotExists, getIdByUserId};

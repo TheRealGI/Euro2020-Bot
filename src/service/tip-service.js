@@ -39,4 +39,8 @@ const getTipByMatchId = async function(userId, matchId)
     return tipRepository.getTipByUserIdAndMatchId(userId, matchId);
 }
 
-module.exports = {getAvailableTipsByUserId, getMatchForTipByMatchId, addTip, getTipByMatchId};
+const getAllAvailableTipsByUserId = async function(userId) {
+    return tipRepository.getAllAvailableTipsByUserId(userId);
+}
+
+module.exports = {getAvailableTipsByUserId, getMatchForTipByMatchId, addTip, getTipByMatchId, getAllAvailableTipsByUserId};

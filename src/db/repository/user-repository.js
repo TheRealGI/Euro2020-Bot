@@ -1,7 +1,7 @@
 const db = require('../knex');
 
 
-function getUserByUserIdAndServerId (simpleUserDto) {
+function getUserByUserIdAndServerId(simpleUserDto) {
     return db.dbConnection("UserEntity").select("*")
     .where("UserId", simpleUserDto.UserId)
     .andWhere("ServerId", simpleUserDto.ServerId);

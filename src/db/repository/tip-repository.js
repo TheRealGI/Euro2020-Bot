@@ -19,5 +19,9 @@ function getTipByUserIdAndMatchId (userId, matchId) {
     return db.dbConnection("TipEntity").select("*").where("UserId", userId).andWhere("MatchId", matchId);
 }
 
-module.exports = {getTipByUserId, addTip, getTipByUserIdAndMatchId};
+function getAllAvailableTipsByUserId (userId){
+    return db.dbConnection("TipEntity").select("*").where("UserId", userId).innerJoin("MatchEntity", "MatchId", "MatchEntity.Id");
+}
+
+module.exports = {getTipByUserId, addTip, getTipByUserIdAndMatchId, getAllAvailableTipsByUserId};
 
