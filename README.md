@@ -22,4 +22,6 @@ The data will be stored in  [SQLite](https://www.sqlite.org/index.html) file. I'
 |~tomorrow    |                                      | delivers matches for tomorrow                                              |
 |~bet         |                                      | delivers all matches which can be bet on                                   |
 |~bet         | matchId, homeTeamScore, awayTeamScore| adds the bet you made on a match. A confirmation message will be displayed |
+|~mybets      |                                      | displays all bets you made                                                 |
+
 
