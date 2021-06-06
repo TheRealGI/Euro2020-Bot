@@ -25,4 +25,18 @@ const getAvailableTipsByUserId = async function(userId) {
     return availableMatches;
 }
 
-module.exports = {getAvailableTipsByUserId};
+const getMatchForTipByMatchId = async function (matchId) {
+    return await matchRepository.getMatchById(matchId);
+}
+
+const addTip = async function (args, userId) {
+    let tip = {UserId: userId, MatchId: args[0], TipHome: args[1], TipAway: args[2]};
+    return await tipRepository.addTip(tip);
+}
+
+const getTipByMatchId = async function(userId, matchId)
+{
+    return tipRepository.getTipByUserIdAndMatchId(userId, matchId);
+}
+
+module.exports = {getAvailableTipsByUserId, getMatchForTipByMatchId, addTip, getTipByMatchId};
