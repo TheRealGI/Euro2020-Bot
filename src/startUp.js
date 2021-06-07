@@ -30,6 +30,10 @@ const startExpress = function () {
       return res.status(403).send('Missing auth header!')
   });
 
+  app.get('/', async (req, res) => {
+    res.send('Im alive');
+  });
+
   app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 }
 
