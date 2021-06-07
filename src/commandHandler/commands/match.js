@@ -25,5 +25,9 @@ module.exports = {
 }
 
 function buildMessage(msg, match) {
-     return msg += match.HomeName + "\t"+ match.HomeScore + ":" + match.AwayScore+ "\t" + match.AwayName ;
+    let homeScore = match.HomeScore == null ? "** n/a ** " : "** " + match.HomeScore + " **" ;
+    let awayScore = match.AwayScore == null ? "** n/a ** " : "** " + match.AwayScore + " **" ;
+    let homeName =  match.HomeName  == null ? "** TBD ** " : match.HomeName;
+    let awayName =  match.AwayName == null ? "** TBD **" : match.AwayName;
+     return msg += homeName + "\t"+ homeScore + ":" + awayScore+ "\t" + awayName ;
 }
