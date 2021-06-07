@@ -17,42 +17,44 @@ module.exports = {
 }
 
 function buildMessage(matches) {
+    var fields = new Array();
     let msg = "";
     let state = new StateDto();
     matches.map(x => {
         switch (x.Status) {
             case state.SCHEDULED:
-                msg += x.Id + ' '+x.HomeName + ' vs. ' + x.AwayName +"\n";
+                msg += x.Id + " "+x.HomeName + " vs. " + x.AwayName +"\n";
                 break;
 
             case state.INPLAY:
-                msg += "\uFFED " + x.HomeName + ' vs. ' + x.AwayName + '   ' + x.HomeScore + ' : ' + x.AwayScore + "\n";
+                msg += x.Id + " " + x.HomeName + ' vs. ' + x.AwayName + '   ' + x.HomeScore + ' : ' + x.AwayScore + "  \uFFED \n";
                 break;
 
             case state.FINISHED:
-                msg += "Finished\t" + x.HomeName + ' vs. ' + x.AwayName + ' -->  ' + x.HomeScore + ' : ' + x.AwayScore + "\n";
+                msg += x.Id + "\t\t" + x.HomeName + ' vs. ' + x.AwayName + '   **' + x.HomeScore + ' : ' + x.AwayScore + "**\n";
                 break;
 
             default:
                 break;
         }
+        if(msg.length > 950) {
+            fields.push( {name :"ID\n", value: msg , inline: true});
+            msg = "";
+        }
     });
 
-    return createEmbed(msg);
-}
-
-function createEmbed(msg) {
-    var fields = new Array();
-    while (msg.length > 0) {
-        fields.push({ name: "ID\tHomeTeam\tAwayTeam", value: msg.substr(0, 1017), inline: false });
-        msg = msg.slice(1017);
+    if(msg.length > 0) {
+        fields.push({name :"ID\n", value: msg , inline: true});
     }
 
+    return createEmbed(fields);
+}
+
+function createEmbed(fields) {
     var embed = new Discord.MessageEmbed()
         .setColor(0x5ee59d)
         .setTitle('All matches schedule:')
         .addFields(fields)
-        .setFooter("Use the match command and a Id to get more details");
-
+        .setFooter("\uFFED indicates a live match. Bold results indicates that the match is finished");
     return embed;
 }
