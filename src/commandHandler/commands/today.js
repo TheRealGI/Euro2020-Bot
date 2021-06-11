@@ -7,7 +7,7 @@ module.exports = {
     needsArgs: false,
     async execute(message, args) {
         let dateToday = new Date();
-        moment.getUtcDate(dateToday.setDate(dateToday.getDate() + 7))
+        moment.getUtcDate(dateToday.setDate(dateToday.getDate()))
 
         var matchesToday = await matchService.getMatchesByDate(dateToday);
 
