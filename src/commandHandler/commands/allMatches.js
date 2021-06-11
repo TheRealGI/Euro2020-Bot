@@ -27,6 +27,7 @@ function buildMessage(matches) {
                 break;
 
             case state.INPLAY:
+            case state.PAUSED:
                 msg += x.Id + " " + x.HomeName + ' vs. ' + x.AwayName + '   ' + x.HomeScore + ' : ' + x.AwayScore + "  \uFFED \n";
                 break;
 
